@@ -1,1 +1,17 @@
-import { useAirSketchStore } from './store/useAirSketchStore'; export default function App() { const drones = useAirSketchStore((state) => state.drones); console.log('Drones:', drones); return ( <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center"> <h1>AirSketch</h1> </div> ); }
+import LeftPanel from './components/layout/LeftPanel';
+import RightPanel from './components/layout/RightPanel';
+import BottomBar from './components/layout/BottomBar';
+import CityCanvas from './components/canvas/CityCanvas';
+
+export default function App() {
+  return (
+    <div className="w-screen h-screen flex flex-col overflow-hidden bg-[#0a0f1e]">
+      <div className="flex flex-1 overflow-hidden">
+        <LeftPanel />
+        <CityCanvas />
+        <RightPanel />
+      </div>
+      <BottomBar />
+    </div>
+  );
+}
